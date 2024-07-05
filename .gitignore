@@ -5,6 +5,10 @@
 /tmp
 /out-tsc
 /bazel-out
+/fortune-cookie-frontend/dist
+
+# Angular
+/fortune-cookie-frontend/.angular
 
 # Node
 /node_modules
@@ -29,6 +33,7 @@ yarn-error.log
 !.vscode/launch.json
 !.vscode/extensions.json
 .history/*
+fortune-cookie-frontend/.vscode
 
 # Miscellaneous
 /.angular/cache
