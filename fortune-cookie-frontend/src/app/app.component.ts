@@ -8,17 +8,19 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   standalone: true,
   imports: [RouterOutlet, QuoteDisplayComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  styleUrls: ['./app.component.scss'],
   animations: [
-    trigger('scrollAnimation', [
+    trigger('quoteState', [
       state('hidden', style({
-        transform: 'translateY(100vh)',
+        opacity: 0,
+        transform: 'translateY(100vh)'
       })),
       state('visible', style({
-        transform: 'translateY(0)',
+        opacity: 1,
+        transform: 'translateY(0)'
       })),
-      transition('hidden <=> visible', animate('1000ms ease-out')),
-    ]),
+      transition('hidden <=> visible', animate('600ms ease-in-out'))
+    ])
   ]
 })
 export class AppComponent {
@@ -28,6 +30,6 @@ export class AppComponent {
     this.sectionState = 'visible';
     setTimeout(() => {
       document.getElementById('quoteSection')?.scrollIntoView({ behavior: 'smooth' });
-    }, 1000); // Delay to ensure smooth animation before scrolling
+    }, 600); // Delay to ensure smooth animation before scrolling
   }
 }
