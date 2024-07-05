@@ -29,7 +29,13 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "/assets"
+              },
+              "src/assets/favicon.ico"
             ],
             "styles": [
               "src/styles.scss"
@@ -88,10 +94,7 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              },
-              "src/assets/favicon.ico",
-              "src/assets/images/*",
-              "fortune-cookie-frontend/src/assets/*"
+              }
             ],
             "styles": [
               "src/styles.scss",
