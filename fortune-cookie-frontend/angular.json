@@ -88,7 +88,10 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/assets/favicon.ico",
+              "src/assets/images/*",
+              "fortune-cookie-frontend/src/assets/*"
             ],
             "styles": [
               "src/styles.scss",

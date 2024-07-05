@@ -1,9 +1,10 @@
-<div class="container mt-5 text-center">
-    <div class="card shadow-sm">
-        <div class="card-body">
-            <h1 class="card-title">Fortune Cookie Quote</h1>
-            <p class="quote-text">{{ currentQuote }}</p>
-            <button class="btn btn-primary mt-3" (click)="newQuote()">Get New Quote</button>
-        </div>
+<div class="quote-display">
+    <div class="quote-image">
+        <img [src]="currentQuote.image" alt="Quote Image" *ngIf="currentQuote.image">
     </div>
+    <div class="quote-text">
+        <p>{{ currentQuote.quote }}</p>
+        <a [href]="currentQuote.link" target="_blank" *ngIf="currentQuote.link">Read more</a>
+    </div>
+    <button class="btn btn-primary mt-3" (click)="newQuote()">Get New Quote</button>
 </div>

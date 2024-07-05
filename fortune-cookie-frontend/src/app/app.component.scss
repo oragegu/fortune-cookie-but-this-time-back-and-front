@@ -8,19 +8,28 @@
 @import "../../node_modules/bootstrap/scss/type";
 @import "../../node_modules/bootstrap/scss/buttons";
 
-// Custom styles
+/* Reset default margins and padding */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* Hero Section Styles */
 .hero {
     height: 100vh;
-    background: linear-gradient(to right, #ff7e5f, #feb47b);
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
-    transition: background 1.5s ease;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    margin: 0;
+    padding: 0;
 
     .hero-content {
-        max-width: 800px;
+        max-width: 1000px;
 
         h1 {
             font-size: 3rem;
@@ -39,6 +48,7 @@
     }
 }
 
+/* Quote Section Styles */
 .quote-section {
     padding: 50px 20px;
     background: #f4f4f4;

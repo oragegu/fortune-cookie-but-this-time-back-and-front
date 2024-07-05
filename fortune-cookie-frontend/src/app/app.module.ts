@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { QuoteDisplayComponent } from './quote-display/quote-display.component';
@@ -14,10 +15,14 @@ import { QuoteService } from './quote.service';
     ],
     imports: [
         BrowserModule,
-        FormsModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        QuoteDisplayComponent
     ],
-    providers: [QuoteService],
+    providers: [
+        QuoteService,
+        //provideHttpClient(withInterceptorsFromDi())
+        HttpClient
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

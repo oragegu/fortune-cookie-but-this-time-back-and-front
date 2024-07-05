@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { Quote } from './interfaces/quote.interface';
+import quotesData from '../assets/quotes.json'
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuoteService {
-  private apiUrl = '/api/quotes';
+  private quotes: Quote[] = quotesData;
 
-  constructor(private http: HttpClient) { }
-
-  getQuote(): Observable<{ quote: string }> {
-    return this.http.get<{ quote: string }>(this.apiUrl);
+  getQuotes(): Quote[] {
+    return this.quotes;
   }
 }

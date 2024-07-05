@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { QuoteService } from '../quote.service';
+import { Quote } from '../interfaces/quote.interface';
 
 @Component({
   selector: 'app-quote-display',
@@ -10,23 +10,28 @@ import { QuoteService } from '../quote.service';
   templateUrl: './quote-display.component.html',
   styleUrl: './quote-display.component.scss'
 })
-
 export class QuoteDisplayComponent implements OnInit {
-  currentQuote = '';
+  quotes: Quote[] = [];
+  currentQuote: Quote = {
+    quote: '',
+    link: '',
+    image: ''
+  };
+
 
   constructor(private quoteService: QuoteService) { }
 
   ngOnInit() {
-    this.getQuote();
+    this.quotes = this.quoteService.getQuotes();
+    this.getRandomQuote();
   }
 
-  getQuote() {
-    this.quoteService.getQuote().subscribe(response => {
-      this.currentQuote = response.quote;
-    });
+  getRandomQuote() {
+    const randomIndex = Math.floor(Math.random() * this.quotes.length);
+    this.currentQuote = this.quotes[randomIndex];
   }
 
   newQuote() {
-    this.getQuote();
+    this.getRandomQuote();
   }
 }
