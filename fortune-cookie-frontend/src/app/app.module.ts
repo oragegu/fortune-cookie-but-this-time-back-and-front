@@ -4,6 +4,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
+
 import { AppComponent } from './app.component';
 import { QuoteDisplayComponent } from './quote-display/quote-display.component';
 import { QuoteService } from './quote.service';
@@ -16,7 +20,9 @@ import { QuoteService } from './quote.service';
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
-        QuoteDisplayComponent
+        QuoteDisplayComponent,
+        MatFormFieldModule,
+        MatInputModule
     ],
     providers: [
         QuoteService,

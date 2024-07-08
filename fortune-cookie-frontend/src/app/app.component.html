@@ -1,11 +1,11 @@
 <div class="hero">
   <div class="hero-content">
-    <h1>Welcome to the Fortune Cookie Quotes</h1>
-    <p>Get inspired with random quotes!</p>
-    <button class="btn btn-primary" (click)="scrollToQuote()">Get a Quote</button>
+    <h1 [@fadeInOut]>Tee Two</h1>
+    <h1 [@fadeInOut]>Quotes</h1>
+    <p [@slideInOut]>Get inspired with random quotes!</p>
   </div>
 </div>
 
-<div [@quoteState]="sectionState" id="quoteSection">
+<div>
   <app-quote-display></app-quote-display>
 </div>

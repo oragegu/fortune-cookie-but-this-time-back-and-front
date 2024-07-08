@@ -1,61 +1,49 @@
 /* Global Styles */
-
-// Import only necessary Bootstrap components
-@import "../../node_modules/bootstrap/scss/functions";
-@import "../../node_modules/bootstrap/scss/variables";
-@import "../../node_modules/bootstrap/scss/mixins";
-@import "../../node_modules/bootstrap/scss/reboot";
-@import "../../node_modules/bootstrap/scss/type";
-@import "../../node_modules/bootstrap/scss/buttons";
-
-/* Reset default margins and padding */
-body,
-html {
-    margin: 0;
-    padding: 0;
+html,
+body {
     height: 100%;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-/* Hero Section Styles */
 .hero {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white;
-    background: linear-gradient(to right, #ff7e5f, #feb47b);
-    margin: 0;
-    padding: 0;
+    color: rgb(11, 11, 11);
+    background: linear-gradient(to right, #f37b6053, #efedeb);
+}
 
-    .hero-content {
-        max-width: 800px;
+.hero-content {
+    max-width: 800px;
 
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
+    h1 {
+        font-size: 8rem;
+        line-height: 0.4rem;
+        word-wrap: break-word;
+        margin-bottom: 7rem;
+        border-spacing: 3rem;
+    }
 
-        p {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            font-size: 1.2rem;
-            padding: 10px 20px;
-        }
+    p {
+        font-size: 2rem;
+        margin-bottom: 30px;
     }
 }
 
-/* Quote Section Styles */
 .quote-section {
     padding: 50px 20px;
-    background: #f4f4f4;
+    background: #000000;
     text-align: center;
-    transition: transform 1s ease-out;
+}
 
-    &.hidden {
-        transform: translateY(100vh);
+.dark-theme {
+    background-color: #333;
+    color: #fff;
+
+    .quote-section {
+        background-color: #444;
     }
 }

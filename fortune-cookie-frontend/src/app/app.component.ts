@@ -1,35 +1,48 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { QuoteDisplayComponent } from './quote-display/quote-display.component';
+import { Component, HostListener } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { QuoteDisplayComponent } from './quote-display/quote-display.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, QuoteDisplayComponent],
+  imports: [CommonModule, QuoteDisplayComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [
-    trigger('quoteState', [
-      state('hidden', style({
-        opacity: 0,
-        transform: 'translateY(100vh)'
+    trigger('slideInOut', [
+      state('void', style({
+        transform: 'translateY(100%)',
+        opacity: 0
       })),
-      state('visible', style({
-        opacity: 1,
-        transform: 'translateY(0)'
+      transition(':enter', [
+        animate('2s ease-out', style({
+          transform: 'translateY(0)',
+          opacity: 1
+        }))
+      ])
+    ]),
+    trigger('fadeInOut', [
+      state('void', style({
+        opacity: 0
       })),
-      transition('hidden <=> visible', animate('600ms ease-in-out'))
+      transition(':enter', [
+        animate('2s', style({
+          opacity: 1
+        }))
+      ])
     ])
   ]
 })
 export class AppComponent {
-  sectionState = 'hidden';
+  isDark = false;
+  animationState = 'entered';
+  // Boolean flag to track whether the component is shown or hidden
+  show = false;
 
-  scrollToQuote() {
-    this.sectionState = 'visible';
-    setTimeout(() => {
-      document.getElementById('quoteSection')?.scrollIntoView({ behavior: 'smooth' });
-    }, 600); // Delay to ensure smooth animation before scrolling
+  // Getter method to determine the current state ('show' or 'hide') based on the 'show' flag
+  get presentState() {
+    return this.show ? 'show' : 'hide';
   }
+
 }
