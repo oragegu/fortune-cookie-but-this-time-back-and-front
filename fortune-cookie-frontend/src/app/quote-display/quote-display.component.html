@@ -7,4 +7,7 @@
         <a [href]="currentQuote.link" target="_blank" *ngIf="currentQuote.link">Read more</a>
     </div>
     <button class="btn btn-primary mt-3" (click)="newQuote()">Get New Quote</button>
+    <div mat-dialog-actions class="dialog-actions">
+        <button mat-flat-button color="primary" (click)="onCloseDialog()">Close</button>
+    </div>
 </div>

@@ -28,7 +28,9 @@ body {
     transform: translate(-50%, -50%);
     z-index: -1;
     /* Ensure the video is behind the content */
+
     object-fit: cover;
+    /* This ensures the video covers the entire container while maintaining aspect ratio */
 }
 
 .hero-content {
@@ -56,13 +58,4 @@ body {
     padding: 50px 20px;
     background: #000000;
     text-align: center;
-}
-
-.dark-theme {
-    background-color: #333;
-    color: #fff;
-
-    .quote-section {
-        background-color: #444;
-    }
 }

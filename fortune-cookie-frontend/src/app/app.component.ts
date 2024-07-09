@@ -3,10 +3,21 @@ import { CommonModule } from '@angular/common';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { QuoteDisplayComponent } from './quote-display/quote-display.component';
 
+import { MatButtonModule } from '@angular/material/button';
+import {
+  MatDialog,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogRef,
+  MatDialogTitle,
+} from '@angular/material/dialog';
+
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, QuoteDisplayComponent],
+  imports: [CommonModule, QuoteDisplayComponent, MatButtonModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [
@@ -43,6 +54,20 @@ export class AppComponent {
   // Getter method to determine the current state ('show' or 'hide') based on the 'show' flag
   get presentState() {
     return this.show ? 'show' : 'hide';
+  }
+
+  constructor(public dialog: MatDialog) { }
+
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    const dialogRef = this.dialog.open(QuoteDisplayComponent, {
+      width: "auto",
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The quote dialog was closed')
+    })
   }
 
 }

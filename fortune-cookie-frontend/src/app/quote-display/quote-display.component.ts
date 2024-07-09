@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { QuoteService } from '../quote.service';
 import { Quote } from '../interfaces/quote.interface';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-quote-display',
@@ -18,8 +19,7 @@ export class QuoteDisplayComponent implements OnInit {
     image: ''
   };
 
-
-  constructor(private quoteService: QuoteService) { }
+  constructor(public dialogRef: MatDialogRef<QuoteDisplayComponent>, private quoteService: QuoteService) { }
 
   ngOnInit() {
     this.quotes = this.quoteService.getQuotes();
@@ -33,5 +33,9 @@ export class QuoteDisplayComponent implements OnInit {
 
   newQuote() {
     this.getRandomQuote();
+  }
+
+  onCloseDialog(): void {
+    this.dialogRef.close();
   }
 }
