@@ -7,17 +7,35 @@ body {
 }
 
 .hero {
+    position: relative;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: rgb(11, 11, 11);
-    background: linear-gradient(to right, #ffffff53, #efedeb);
+    overflow: hidden;
+    /* Ensure the video does not overflow */
+}
+
+#myVideo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    /* Ensure the video is behind the content */
+    object-fit: cover;
 }
 
 .hero-content {
+    z-index: 1;
+    /* Ensure content is above the video */
     max-width: 800px;
+    color: #0b0b0b;
 
     h1 {
         margin: .2rem 0;
