@@ -13,18 +13,19 @@ body {
     align-items: center;
     text-align: center;
     color: rgb(11, 11, 11);
-    background: linear-gradient(to right, #f37b6053, #efedeb);
+    background: linear-gradient(to right, #ffffff53, #efedeb);
 }
 
 .hero-content {
     max-width: 800px;
 
     h1 {
-        font-size: 8rem;
+        margin: .2rem 0;
+        font-size: 8em;
         line-height: 0.4rem;
         word-wrap: break-word;
         margin-bottom: 7rem;
-        border-spacing: 3rem;
+        border-spacing: 3em;
     }
 
     p {
