@@ -1,13 +1,17 @@
-<div class="quote-display">
-    <div class="quote-image">
-        <img [src]="currentQuote.image" style="width: 100%;" alt="Quote Image" *ngIf="currentQuote.image">
+<div class="modal" id="quoteModal">
+    <audio #ref src="https://soundbible.com/grab.php?id=1964&type=mp3"></audio>
+    <div class="modal-content">
+        <img [src]="currentQuote.image" style="width: auto; height:70vh;" alt="Quote Image" *ngIf="currentQuote.image">
     </div>
-    <div class="quote-text">
-        <p>{{ currentQuote.quote }}</p>
-        <a [href]="currentQuote.link" target="_blank" *ngIf="currentQuote.link">Read more</a>
-    </div>
-    <button class="btn btn-primary mt-3" (click)="newQuote()">Get New Quote</button>
-    <div mat-dialog-actions class="dialog-actions">
-        <button mat-flat-button color="primary" (click)="onCloseDialog()">Close</button>
+    <div class="modal-buttons">
+        <button class="btn">Read full article</button>
+        <button class="btn">Share with a friend</button>
+        <div class="social-icons">
+
+            <button (click)="ref.play()">▶️ play</button>
+            <a href="#"><img src="/assets/icons/icons8-twitterx.svg" alt="X"></a>
+            <a href="#"><img src="/assets/icons/icons8-instagram.svg" alt="Instagram"></a>
+            <button mat-flat-button color="primary" (click)="onCloseDialog()">Close</button>
+        </div>
     </div>
 </div>

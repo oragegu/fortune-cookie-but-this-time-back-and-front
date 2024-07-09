@@ -55,12 +55,24 @@ export class AppComponent {
   get presentState() {
     return this.show ? 'show' : 'hide';
   }
+  playAudio() {
+    let audio = new Audio();
+    audio.src = "/assets/rain-sound.mp3";
+    audio.load();
+    audio.play();
+  }
+  ngInit() {
+    this.playAudio();
+  }
 
   constructor(public dialog: MatDialog) { }
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     const dialogRef = this.dialog.open(QuoteDisplayComponent, {
+      height: "auto",
       width: "auto",
+      maxHeight: "90vh",
+      maxWidth: "90vw",
       enterAnimationDuration,
       exitAnimationDuration,
     });
