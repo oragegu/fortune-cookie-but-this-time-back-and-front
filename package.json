@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run start --prefix fortune-cookie-frontend",
+    "build": "npm run build --prefix fortune-cookie-frontend"
   },
   "keywords": [],
   "author": "",
@@ -11,5 +13,9 @@
   "description": "",
   "dependencies": {
     "@angular/cli": "^18.0.7"
-  }
+  },
+  "workspaces": [
+    "fortune-cookie-new/fortune-cookie-backend",
+    "fortune-cookie-new/fortune-cookie-frontend"
+  ]
 }
